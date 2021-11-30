@@ -30,24 +30,27 @@ export default () => {
 
   const handleSignClick = async () => {
     if (emailField != '' && passwordField != '') {
-      let json = await Api.signIn(emailField, passwordField);
+      // let json = await Api.signIn(emailField, passwordField);
+      navigation.reset({
+        routes: [{name: 'MainTab'}],
+      });
 
-      if (json.token) {
-        await AsyncStorage.setItem('token', json.token);
+      // if (json.token) {
+      //   await AsyncStorage.setItem('token', json.token);
 
-        userDispatch({
-          type: 'setAvatar',
-          payload: {
-            avatar: json.data.avatar,
-          },
-        });
+      //   userDispatch({
+      //     type: 'setAvatar',
+      //     payload: {
+      //       avatar: json.data.avatar,
+      //     },
+      //   });
 
-        navigation.reset({
-          routes: [{name: 'MainTab'}],
-        });
-      } else {
-        alert('E-mail e/ou senha errados!');
-      }
+      //   navigation.reset({
+      //     routes: [{name: 'MainTab'}],
+      //   });
+      // } else {
+      //   alert('E-mail e/ou senha errados!');
+      // }
     } else {
       alert('Preencha os campos!');
     }
