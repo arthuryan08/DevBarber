@@ -1,4 +1,4 @@
 # devbarber
 
-App pra estudo de React Native
+App pra estudo de React Native completo.
  
