@@ -31,7 +31,10 @@ export default () => {
         </HeaderArea>
 
         <LocationArea>
-          <LocationInput />
+          <LocationInput
+            placeholder="Onde você está?"
+            placeholderTextColor="#FFFFFF"
+          />
           <LocationFinder>
             <MyLocationIcon width="24" height="24" fill="#FFFFFF" />
           </LocationFinder>
