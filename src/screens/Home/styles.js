@@ -37,5 +37,9 @@ export const LocationArea = styled.View`
   padding-right: 20px;
   margin-top: 30px;
 `;
-export const LocationInput = styled.TextInput``;
+export const LocationInput = styled.TextInput`
+  flex: 1;
+  font-size: 16px;
+  color: #ffffff;
+`;
 export const LocationFinder = styled.TouchableOpacity``;
