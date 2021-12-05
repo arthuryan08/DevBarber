@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {request, PERMISSIONS} from 'react-native-permissions';
+import Geolocation from '@react-native-community/geolocation';
+
 import {
   Container,
   Scroller,
@@ -18,6 +21,11 @@ export default () => {
   const navigation = useNavigation();
 
   const [locationText, setLocationText] = useState('');
+  const [coords, setCoords] = useState(null);
+
+  const handleLocationFinder = () => {
+    setCoords(null);
+  };
 
   return (
     <Container>
@@ -38,7 +46,7 @@ export default () => {
             value={locationText}
             onChangeText={t => setLocationText(t)}
           />
-          <LocationFinder>
+          <LocationFinder onPress={handleLocationFinder}>
             <MyLocationIcon width="24" height="24" fill="#FFFFFF" />
           </LocationFinder>
         </LocationArea>
