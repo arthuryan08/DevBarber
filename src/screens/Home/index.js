@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {request, PERMISSIONS} from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
@@ -23,8 +24,9 @@ export default () => {
   const [locationText, setLocationText] = useState('');
   const [coords, setCoords] = useState(null);
 
-  const handleLocationFinder = () => {
+  const handleLocationFinder = async () => {
     setCoords(null);
+    let result = await request();
   };
 
   return (
