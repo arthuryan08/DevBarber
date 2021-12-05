@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {request, PERMISSIONS} from 'react-native-permissions';
 import Geolocation from '@react-native-community/geolocation';
+
+import Api from '../../Api';
 
 import {
   Container,
@@ -47,7 +49,27 @@ export default () => {
     }
   };
 
-  const getBarbers = () => {};
+  const getBarbers = async () => {
+    setLoading(true);
+    setList([]);
+
+    let res = await Api.getBarbers();
+    console.log(res);
+    if (res.error == '') {
+      if (res.loc) {
+        setLocationText(res.loc);
+      }
+      setList(res.data);
+    } else {
+      alert('Erro: ' + res.error);
+    }
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getBarbers();
+  }, []);
 
   return (
     <Container>
