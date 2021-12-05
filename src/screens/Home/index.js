@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {Text} from 'react-native';
 import {
   Container,
   Scroller,
@@ -18,6 +17,8 @@ import MyLocationIcon from '../../assets/my_location.svg';
 export default () => {
   const navigation = useNavigation();
 
+  const [locationText, setLocationText] = useState('');
+
   return (
     <Container>
       <Scroller>
@@ -34,6 +35,8 @@ export default () => {
           <LocationInput
             placeholder="Onde você está?"
             placeholderTextColor="#FFFFFF"
+            value={locationText}
+            onChangeText={t => setLocationText(t)}
           />
           <LocationFinder>
             <MyLocationIcon width="24" height="24" fill="#FFFFFF" />
