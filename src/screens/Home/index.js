@@ -57,7 +57,6 @@ export default () => {
     setList([]);
 
     let res = await Api.getBarbers();
-    console.log(res);
     if (res.error == '') {
       if (res.loc) {
         setLocationText(res.loc);
