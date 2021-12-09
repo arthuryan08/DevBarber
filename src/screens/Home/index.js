@@ -55,6 +55,7 @@ export default () => {
 
   const getBarbers = async () => {
     setLoading(true);
+    test;
     setList([]);
 
     let lat = null;
